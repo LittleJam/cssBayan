@@ -3,6 +3,11 @@
   margin: 0;
 }
 .wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+.accordion {
+  margin: 0 auto;
 }
 .accordion ul,
 .accordion li {
@@ -13,4 +18,30 @@ input[type='radio'] {
 }
 .accordion-mem-content {
   display: none;
+}
+.accordion .label-wrapper:hover ~ .accordion-mem-content {
+  display: block;
+}
+.accordion [id^='accordion-mem']:checked ~ .accordion-mem-content {
+  display: block;
+}
+
+.cross {
+  display: none;
+  height: 1%;
+  width: 1%;
+}
+
+.accordion:hover .cross {
+  display: block;
+}
+
+.label-wrapper {
+  display: flex;
+  cursor: pointer;
+}
+
+.accordion-mem-content img {
+  width: 20%;
+  height: 20%;
 }
