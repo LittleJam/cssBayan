@@ -5,15 +5,22 @@
 .wrapper {
   width: 90%;
   margin: 0 auto;
+  background-color: rgb(227, 239, 234);
+  height: 100vh;
 }
+
 .accordion {
   margin: 0 auto;
   width: 80%;
 }
-.accordion ul,
+.accordion ul {
+  width: 100%;
+}
+
 .accordion li {
   list-style: none;
-  padding-top: 5%;
+  margin-top: 1%;
+  width: 100%;
 }
 input[type='radio'] {
   display: none;
@@ -21,15 +28,12 @@ input[type='radio'] {
 .accordion-mem-content {
   display: none;
 }
-.accordion li:hover .label-wrapper ~ .accordion-mem-content {
-  display: block;
-}
-.accordion [id^='accordion-mem']:checked ~ .accordion-mem-content,
-.accordion [id^='accordion-mem']:checked ~ .close {
-  display: block;
-}
-
 .open {
+  display: none;
+  height: 2%;
+  width: 2%;
+}
+.close {
   display: none;
   height: 2%;
   width: 2%;
@@ -38,25 +42,58 @@ input[type='radio'] {
 .accordion:hover .open {
   display: block;
 }
-.close {
+
+.accordion li:hover .label-wrapper ~ .accordion-mem-content {
+  display: block;
+  cursor: pointer;
+  animation-name: content;
+  animation-duration: 0.7s;
+}
+
+@keyframes content {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.accordion li:hover .label-wrapper .open {
   display: none;
-  height: 2%;
-  width: 2%;
+}
+.accordion li:hover .label-wrapper .close {
+  display: block;
+}
+
+.accordion [id^='accordion-mem']:checked ~ .label-wrapper .open {
+  display: none;
+}
+.accordion [id^='accordion-mem']:checked ~ .accordion-mem-content,
+.accordion [id^='accordion-mem']:checked ~ .label-wrapper .close {
+  display: block;
+}
+
+.meme-title {
+  font-size: 1.5rem;
 }
 
 .label-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   cursor: pointer;
-  border-bottom: 0.1em solid #099034;
   border-top: 0.1em solid #099034;
 }
 .label-wrapper label:hover {
   cursor: pointer;
 }
 .accordion-mem-content img {
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
+  margin: 2% auto;
+  display: block;
 }
