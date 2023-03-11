@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+}
+.accordion ul,
+.accordion li {
+  list-style: none;
+}
+input[type='radio'] {
+  display: none;
+}
+.accordion-mem-content {
+  display: none;
+}
