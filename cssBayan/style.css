@@ -8,8 +8,9 @@ html {
 .wrapper {
   width: 70%;
   margin: 0 auto;
-
   height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
 }
 
 .accordion {
@@ -24,11 +25,23 @@ html {
 h1 {
   margin-top: 2%;
 }
-.accordion li {
+
+.accordion-list li {
   list-style: none;
   margin-top: 1%;
   width: 100%;
 }
+
+.accordion .meme-title {
+  color: blue;
+}
+.accordion:hover .label-wrapper .meme-title {
+  color: black;
+}
+.accordion [id^='accordion-mem']:checked ~ .label-wrapper .meme-title {
+  color: black;
+}
+
 input[type='radio'] {
   display: none;
 }
@@ -72,6 +85,8 @@ input[type='radio'] {
 }
 .accordion li:hover .label-wrapper .close {
   display: block;
+  animation-name: content;
+  animation-duration: 0.7s;
 }
 
 .accordion [id^='accordion-mem']:checked ~ .label-wrapper .open {
@@ -80,8 +95,13 @@ input[type='radio'] {
 .accordion [id^='accordion-mem']:checked ~ .accordion-mem-content,
 .accordion:hover [id^='accordion-mem']:checked ~ .label-wrapper .close {
   display: block;
+  color: black;
 }
 .accordion [id^='accordion-mem']:checked:hover ~ .accordion-mem-content {
+  animation: none;
+}
+
+.accordion [id^='accordion-mem']:checked:hover ~ .label-wrapper .close {
   animation: none;
 }
 .meme-title {
