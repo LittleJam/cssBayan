@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+.wrapper {
+  width: 70%;
+  margin: 0 auto;
+  height: 100vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+}
+
+.accordion {
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 5%;
+  transition: 1s all;
+}
+.accordion ul {
+  width: 100%;
+}
+h1 {
+  margin-top: 2%;
+}
+
+.accordion-list li {
+  list-style: none;
+  margin-top: 1%;
+  width: 100%;
+}
+
+.accordion .meme-title {
+  color: blue;
+}
+.accordion:hover .label-wrapper .meme-title {
+  color: black;
+}
+.accordion [id^='accordion-mem']:checked ~ .label-wrapper .meme-title {
+  color: black;
+}
+
+input[type='radio'] {
+  display: none;
+}
+.accordion-mem-content {
+  display: none;
+}
+.open {
+  display: none;
+  height: 2%;
+  width: 2%;
+}
+.close {
+  display: none;
+  height: 2%;
+  width: 2%;
+}
+
+.accordion:hover .open {
+  display: block;
+}
+
+.accordion li:hover .label-wrapper ~ .accordion-mem-content {
+  display: block;
+  cursor: pointer;
+  animation-name: content;
+  animation-duration: 0.7s;
+}
+
+@keyframes content {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.accordion li:hover .label-wrapper .open {
+  display: none;
+}
+.accordion li:hover .label-wrapper .close {
+  display: block;
+  animation-name: content;
+  animation-duration: 0.7s;
+}
+
+.accordion [id^='accordion-mem']:checked ~ .label-wrapper .open {
+  display: none;
+}
+.accordion [id^='accordion-mem']:checked ~ .accordion-mem-content,
+.accordion:hover [id^='accordion-mem']:checked ~ .label-wrapper .close {
+  display: block;
+  color: black;
+}
+.accordion [id^='accordion-mem']:checked:hover ~ .accordion-mem-content {
+  animation: none;
+}
+
+.accordion [id^='accordion-mem']:checked:hover ~ .label-wrapper .close {
+  animation: none;
+}
+.meme-title {
+  font-size: 1.5rem;
+  margin-top: 1%;
+}
+
+.label-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  border-top: 0.1em solid #099034;
+}
+.label-wrapper label:hover {
+  cursor: pointer;
+}
+.accordion-mem-content img {
+  width: 30%;
+  height: 30%;
+  margin: 2% auto;
+  display: block;
+}
+
+@media (max-width: 820px) {
+  .accordion-mem-content img {
+    width: 50%;
+    height: 50%;
+    margin: 2% auto;
+    display: block;
+  }
+  .meme-title {
+    font-size: 1rem;
+    margin-top: 1%;
+  }
+}
+
+@media (max-width: 320px) {
+  .accordion-mem-content img {
+    width: 70%;
+    height: 70%;
+    margin: 2% auto;
+    display: block;
+  }
+  .meme-title {
+    font-size: 0.7rem;
+    margin-top: 1%;
+  }
+}
